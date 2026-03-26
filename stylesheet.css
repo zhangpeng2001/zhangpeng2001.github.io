@@ -1,0 +1,62 @@
+<script>
+    async function loadResearch() {
+        const container = document.getElementById('publication-container');
+        try {
+            // 加上时间戳防止 GitHub 缓存导致 txt 更新不及时
+            const response = await fetch('research.txt?t=' + new Date().getTime());
+            if (!response.ok) throw new Error('research.txt not found');
+            const text = await response.text();
+            
+            // 正则匹配 @类型{key, 内容}
+            const entries = text.split(/@\w+\{/).slice(1);
+            let htmlContent = '<table style="width:100%; border-spacing:0px; border-collapse:separate;">';
+
+            entries.forEach(entry => {
+                // 预处理：去掉换行符方便正则匹配
+                const data = entry.replace(/\s+/g, ' ');
+                
+                const getField = (field) => {
+                    const regex = new RegExp(`${field}\\s*=\\s*\{?([^,\}]+)\}?`, 'i');
+                    const match = data.match(regex);
+                    return match ? match[1].trim() : '';
+                };
+
+                const title = getField('title');
+                // 将 BibTeX 的 "Last, First and Last, First" 转换为更易读的格式
+                const author = getField('author').replace(/ and /g, ', ');
+                const booktitle = getField('booktitle') || getField('journal');
+                const short = getField('short');
+                const img = getField('img');
+                const paper = getField('paper');
+                const code = getField('code');
+
+                htmlContent += `
+                    <tr>
+                        <td style="padding:20px; width:25%; vertical-align:middle; text-align:center;">
+                            <img style="width:100%; max-width:220px; border:1px solid #f0f0f0; border-radius:8px; transition: transform 0.3s;" 
+                                 src="images/${img}.jpg" 
+                                 onerror="this.src='images/default.jpg'"
+                                 onmouseover="this.style.transform='scale(1.05)'" 
+                                 onmouseout="this.style.transform='scale(1)'">
+                        </td>
+                        <td style="padding:20px; width:75%; vertical-align:middle;">
+                            <span style="font-weight:bold; color:#d44d44; font-size:16px;">(${short})</span> 
+                            <span style="font-weight:bold; font-size:16px; color:#333;">${title}</span><br>
+                            <p style="margin: 8px 0; color:#444;">${author.replace('Zhang, Peng', '<b>Zhang, Peng</b>')}</p>
+                            <p style="font-size: 14px; font-style: italic; color: #666; margin-bottom:10px;">${booktitle}</p>
+                            <p style="font-size: 14px;">
+                                ${paper ? `<a href="${paper}" target="_blank" style="color:#1a73e8; text-decoration:none; font-weight:500;">[Paper]</a>` : ''}
+                                ${code ? `&nbsp;&nbsp;<a href="${code}" target="_blank" style="color:#1a73e8; text-decoration:none; font-weight:500;">[Code]</a>` : ''}
+                            </p>
+                        </td>
+                    </tr>`;
+            });
+
+            htmlContent += '</table>';
+            container.innerHTML = htmlContent;
+        } catch (err) {
+            container.innerHTML = `<p style="color:red; padding:20px;">Error loading research: ${err.message}</p>`;
+        }
+    }
+    window.onload = loadResearch;
+  </script>
