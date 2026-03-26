@@ -4,7 +4,7 @@
   booktitle={Findings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2026},
   short=Findings of CVPR,
-  img=dosl
+  img=DoSL,
 }
 
 
@@ -29,7 +29,7 @@
   year={2025},
   publisher={IEEE},
   short=TGRS,
-  img=NIRNet,
+  img=nirnet,
   paper=https://ieeexplore.ieee.org/document/11043159,
   code=https://github.com/zhangpeng2001/nirnet.git
 }
