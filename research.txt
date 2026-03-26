@@ -1,6 +1,6 @@
 @inproceedings{zhang2026dosl,
   title={Once for All: An End-to-End Paradigm for VLM-Based Domain-Generalized Object Detection},
-  author={Zhang, Peng and Yuan, Xiang and Li, Chong and Han Junwei and Cheng, Gong},
+  author={Zhang Peng and Yuan Xiang and Li Chong and Han Junwei and Cheng Gong},
   booktitle={Findings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2026},
   short=Findings of CVPR,
@@ -10,7 +10,7 @@
 
 @inproceedings{zhang2026unified,
   title={Unified Interaction Consistency Learning for Single-Source Domain-Generalized Object Detection in Urban Scene},
-  author={Zhang, Peng and Yuan, Xiang and Cheng, Gong},
+  author={Zhang Peng and Yuan Xiang and Cheng Gong},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
   volume={40},
   number={15},
@@ -24,7 +24,7 @@
 
 @article{zhang2025nirnet,
   title={NIRNet: Noise incentive robust network in remote sensing object detection under cloud corruption},
-  author={Zhang, Peng and Cheng, Gong and Lang, Chunbo and Xie, Xingxing and Han, Junwei},
+  author={Zhang Peng and Cheng Gong and Lang Chunbo and Xie Xingxing and Han Junwei},
   journal={IEEE Transactions on Geoscience and Remote Sensing},
   year={2025},
   publisher={IEEE},
