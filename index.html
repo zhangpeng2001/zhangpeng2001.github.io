@@ -1,7 +1,150 @@
-<h1><font size=8 color='coral'> ZhangPeng 张鹏 <h1>
-	<p1><font size=4 color='CornflowerBlue'> Email:iampengzhang@mail.nwpu.edu.cn<p1><br>
-	<p2><font size=4 color='CornflowerBlue'> school: <a href= 'https://www.nwpu.edu.cn/'> NorthWestern Polytechnical University<a> <br>
-<h2><font size=6.5 color='CornflowerBlue'> Education: <h2>
-	<p1><font size =3> High school:包头市回民中学 <p1><br>
-	<p2><font size =3> Undergraduation:NorthWestern Polytechnical University<p2><br>
-	
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Zhang Peng (张鹏) - NWPU</title>
+    <meta name="author" content="Zhang Peng">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+
+<body>
+  <table style="width:100%;max-width:1280px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:2% 1% 1% 1%;width:63%;vertical-align:middle">
+                  <p style="text-align:center"><h1 style="font-size: 32px; font-weight: 700;">Zhang Peng (张鹏)</h1></p>
+                  <p>Hi! I am Zhang Peng. I am a Ph.D. student at <a href="https://www.nwpu.edu.cn/">NWPU</a>, supervised by Prof. Gong Cheng.</p>
+                  <p>Research interests: <b>Open-scene Understanding</b>, <b>Domain Generalization</b>, and <b>Remote Sensing</b>.</p>
+                  <p style="text-align:center">
+                    <a href="mailto:your_email@mail.nwpu.edu.cn">Email</a> &nbsp/&nbsp
+                    <a href="#">Google Scholar</a> &nbsp/&nbsp
+                    <a href="https://github.com/zhangpeng2001">Github</a>
+                  </p>
+                </td>
+                <td style="padding:5%;width:37%;vertical-align:middle">
+                  <div style="text-align: center;">
+                    <img style="width:100%; max-width:250px; border-radius:15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" src="images/zhangpeng.jpg">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr><td style="padding:1%;"><h2 style="font-size: 24px;">Education</h2></td></tr>
+            </tbody>
+          </table>
+          <table style="width:95%;margin-left:auto;margin-right:auto;">
+            <tr>
+                <td style="padding:10px;"><b>Northwestern Polytechnical University</b><br><small>School of Automation</small></td>
+                <td><em>Ph.D. in Control Science and Engineering</em></td>
+                <td style="text-align:right;"><strong>2023 - Present</strong></td>
+            </tr>
+            <tr>
+                <td style="padding:10px;"><b>Northwestern Polytechnical University</b><br><small>School of Power and Energy</small></td>
+                <td><em>B.S. in Flight Vehicle Power Engineering</em></td>
+                <td style="text-align:right;"><strong>2019 - 2023</strong></td>
+            </tr>
+          </table>
+
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr><td style="padding:1%;"><h2 style="font-size: 24px;">Selected Publications</h2></td></tr>
+            </tbody>
+          </table>
+
+          <div id="publication-container">
+            <p style="padding-left: 20px;">Loading research from research.txt...</p>
+          </div>
+
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+          <table style="width:100%;margin-left:auto;margin-right:auto;">
+            <tr><td style="padding:1%;"><h2>Reviewer</h2></td></tr>
+            <tr><td style="padding-left:20px;"><ul><li>AAAI Conference on Artificial Intelligence (AAAI)</li></ul></td></tr>
+            <tr><td style="padding:1%;"><h2>Honors & Awards</h2></td></tr>
+            <tr><td style="padding-left:20px;">
+                <ul>
+                    <li>Outstanding Graduate Student / First-class Scholarship of NWPU</li>
+                    <li>Outstanding Undergraduate Student / Thesis of NWPU</li>
+                </ul>
+            </td></tr>
+          </table>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer style="text-align: center; padding: 40px 0; color: #888; font-size: 12px;">
+    &copy; 2026 Zhang Peng.
+  </footer>
+
+  <script>
+    async function loadResearch() {
+        const container = document.getElementById('publication-container');
+        try {
+            const response = await fetch('research.txt');
+            if (!response.ok) throw new Error('Could not find research.txt');
+            const text = await response.text();
+            
+            // Simple BibTeX parser
+            const entries = text.split(/@\w+\{/).slice(1);
+            let htmlContent = '<table style="width:100%; border-spacing:0px; border-collapse:separate;">';
+
+            entries.forEach(entry => {
+                const clean = entry.replace(/\n/g, ' ');
+                const getField = (field) => {
+                    const regex = new RegExp(`${field}\\s*=\\s*\{?([^,\}]+)\}?`, 'i');
+                    const match = clean.match(regex);
+                    return match ? match[1].trim() : '';
+                };
+
+                const title = getField('title');
+                const author = getField('author').replace(/and/g, ',');
+                const booktitle = getField('booktitle') || getField('journal');
+                const short = getField('short');
+                const img = getField('img');
+                const paper = getField('paper');
+                const code = getField('code');
+
+                htmlContent += `
+                    <tr style="width:100%">
+                        <td style="padding:15px; width:25%; vertical-align:middle; text-align:center;">
+                            <img style="width:100%; max-width:200px; border:1px solid #eee; border-radius:5px;" src="images/${img}.jpg">
+                        </td>
+                        <td style="padding:15px 20px; width:75%; vertical-align:middle;">
+                            <span style="font-weight:bold; color:#d44d44;">(${short})</span> 
+                            <span style="font-weight:bold;">${title}</span><br>
+                            <p style="margin: 5px 0;">${author}</p>
+                            <p style="font-size: 14px; font-style: italic; color: #555;">${booktitle}</p>
+                            <p style="font-size: 14px;">
+                                ${paper ? `[ <a href="${paper}">Paper</a> ]` : ''}
+                                ${code ? `[ <a href="${code}">Code</a> ]` : ''}
+                            </p>
+                        </td>
+                    </tr>`;
+            });
+
+            htmlContent += '</table>';
+            container.innerHTML = htmlContent;
+        } catch (err) {
+            container.innerHTML = `<p style="color:red; padding-left:20px;">Error: ${err.message}. Make sure you are using a web server to view this page.</p>`;
+        }
+    }
+    window.onload = loadResearch;
+  </script>
+</body>
+</html>
